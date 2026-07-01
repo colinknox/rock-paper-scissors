@@ -1,3 +1,22 @@
+import random
+
+possible_choices = {
+    "r": "🪨",
+    "p": "📄",
+    "s": "✂️"
+}
+
+user_choice = str(input("Rock, paper, or scissors? (r/p/s): ")).lower()    
+
+if user_choice not in possible_choices:
+    print("Invalid choice!")
+# elif (
+#     user_choice == "r" and computer_
+# ):
+    
+
+
+print(f"USER CHOICE = {user_choice}")
 # Tuple of valid answers and their respective emojis.
 # Ask user "Rock, paper, or scissors (r/p/s): "
 # Loop
