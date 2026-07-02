@@ -1,5 +1,12 @@
 import random
 
+def continue_game(answer):
+    user_choice = answer.lower()
+    choices = ["y", "n"]
+
+    if user_choice not in choices:
+        print("Invalid choice! Please type either 'y' or 'n'")
+
 possible_choices = {
     "r": "🪨",
     "p": "📄",
@@ -29,6 +36,12 @@ while True:
 
     print(f"USER CHOICE = {user_choice}")
     print(f"COMPUTER CHOICE = {computer_choice}")
+
+
+    does_user_continue = input("Continue? (y/n): ").lower()
+    continue_game(does_user_continue)
+
+    print(f"DOES USER CONTINUE?: {does_user_continue}")
 
 # Tuple of valid answers and their respective emojis.
 # Ask user "Rock, paper, or scissors (r/p/s): "
