@@ -6,18 +6,29 @@ possible_choices = {
     "s": "✂️"
 }
 
-user_choice = str(input("Rock, paper, or scissors? (r/p/s): ")).lower()    
-computer_choice = random.choice(list(possible_choices))
+while True:
+    user_choice = str(input("Rock, paper, or scissors? (r/p/s): ")).lower()    
+    computer_choice = random.choice(list(possible_choices))
 
-if user_choice not in possible_choices:
-    print("Invalid choice!")
-# elif (
-#     user_choice == "r" and computer_
-# ):
-    
-print(f"USER CHOICE = {user_choice}")
-print(f"COMPUTER CHOICE = {computer_choice}")
+    if user_choice not in possible_choices:
+        print("Invalid choice!")
+    elif (
+        user_choice == "r" and computer_choice == "s" or
+        user_choice == "p" and computer_choice == "r" or
+        user_choice == "s" and computer_choice == "p"
+    ):
+        print("You win!")
+    elif (
+        user_choice == "r" and computer_choice == "p" or
+        user_choice == "p" and computer_choice == "s" or
+        user_choice == "s" and computer_choice == "r"
+    ):
+        print("You lose!")
+    else:
+        pass
 
+    print(f"USER CHOICE = {user_choice}")
+    print(f"COMPUTER CHOICE = {computer_choice}")
 
 # Tuple of valid answers and their respective emojis.
 # Ask user "Rock, paper, or scissors (r/p/s): "
