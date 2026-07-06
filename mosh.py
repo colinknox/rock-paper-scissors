@@ -1,11 +1,8 @@
 import random
 
-emojis = {
-    "r": "🪨",
-    "p": "📃",
-    "s": "✂️"
-}
+emojis = {"r": "🪨", "p": "📃", "s": "✂️"}
 valid_choices = ("r", "p", "s")
+
 def get_user_choice():
     while True:
         user_choice = input("Choose rock, paper, or scissors (r/p/s): ").lower()
@@ -26,7 +23,7 @@ def get_game_result(user_choice, computer_choice):
             user_choice == "p" and computer_choice == "r" or
             user_choice == "s" and computer_choice == "p"
         ):
-            print("You win!")
+        print("You win!")
     else:
         print("You lose!")
 
@@ -40,12 +37,8 @@ def play_game():
 
         get_game_result(user_choice, computer_choice)
 
-        choices_to_continue = ("y", "n")
         will_user_continue = input("Continue? (y/n): ").lower()
-        
-        if will_user_continue not in choices_to_continue:
-            print("Invalid choice! Choose either 'y' or 'n'.")
-        elif will_user_continue == "n":
+        if will_user_continue == "n":
             break
-        else:
-            continue
+
+play_game()
