@@ -6,18 +6,19 @@ emojis = {
     "s": "✂️"
 }
 valid_choices = ("r", "p", "s")
+def get_user_choice():
+    while True:
+        user_choice = input("Choose rock, paper, or scissors (r/p/s): ").lower()
+        if user_choice in valid_choices:
+            return user_choice     
+        else:
+            print("Invalid choice! Choose either 'r', 'p', or 's'.")
 
-while True:
-    user_choice = input("Choose rock, paper, or scissors (r/p/s): ").lower()
-    if user_choice not in valid_choices:
-        print("Invalid choice! Choose either 'r', 'p', or 's'.")
-        continue
-
-    computer_choice = random.choice(valid_choices)
-
+def display_choices(user_choice, computer_choice):
     print(f"User chose {emojis[user_choice]}")
     print(f"Computer chose {emojis[computer_choice]}")
 
+def get_game_result(user_choice, computer_choice):
     if user_choice == computer_choice:
         print("Tie!")
     elif (
@@ -29,25 +30,22 @@ while True:
     else:
         print("You lose!")
 
-    choices_to_continue = ("y", "n")
-    will_user_continue = input("Continue? (y/n): ").lower()
-    
-    if will_user_continue not in choices_to_continue:
-        print("Invalid choice! Choose either 'y' or 'n'.")
-    elif will_user_continue == "n":
-        break
-    else:
-        continue
+def play_game():
+    while True:
+        user_choice = get_user_choice()
 
-     
+        computer_choice = random.choice(valid_choices)
 
+        display_choices(user_choice, computer_choice)
 
-# Ask user to make a choice
-# If choice is not valid:
-#     Print error
-# Let computer make a choice
-# Print choices using emojis
-# Determine winner
-# Ask user if they want to continue game
-# If not
-    # Terminate
+        get_game_result(user_choice, computer_choice)
+
+        choices_to_continue = ("y", "n")
+        will_user_continue = input("Continue? (y/n): ").lower()
+        
+        if will_user_continue not in choices_to_continue:
+            print("Invalid choice! Choose either 'y' or 'n'.")
+        elif will_user_continue == "n":
+            break
+        else:
+            continue
