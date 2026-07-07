@@ -1,7 +1,7 @@
 import random
 
 emojis = {"r": "🪨", "p": "📃", "s": "✂️"}
-valid_choices = ("r", "p", "s")
+valid_choices = tuple(emojis.keys())
 
 def get_user_choice():
     while True:
